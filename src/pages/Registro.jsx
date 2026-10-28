@@ -1,0 +1,94 @@
+import { useState } from 'react'
+import Encabezado from '../components/Encabezado'
+import Boton from '../components/Boton'
+
+function Registro() {
+    const [documento, setDocumento] = useState('')
+    const [nombres, setNombres] = useState('')
+    const [apellidos, setApellidos] = useState('')
+    const [celular, setCelular] = useState('')
+    const [correo, setCorreo] = useState('')
+
+    const [errorDocumento, setErrorDocumento] = useState('')
+    const [errorNombres, setErrorNombres] = useState('')
+    const [errorApellidos, setErrorApellidos] = useState('')
+    const [errorCelular, setErrorCelular] = useState('')
+    const [errorCorreo, setErrorCorreo] = useState('')
+
+    function manejarEnvio(evento){
+        evento.preventDefault()
+        let hayErrores = false
+
+         if (nombres.trim() === '') {
+            setErrorNombres('Los nombres son obligatorios')
+            hayErrores = true
+        } else {
+            setErrorNombres('')
+        }
+
+
+        if(hayErrores){
+            return
+        }
+
+        alert('Cuenta lista para crear')
+    }
+
+    return (
+        <main>
+            <Encabezado titulo="Crear cuenta" volverA="/" />
+            <p>Regístrate para reportar los microbasureros de tu barrio.</p>
+             <form onSubmit={manejarEnvio}>
+                <label htmlFor="documento">Número de documento</label>
+                <input
+                id="documento"
+                type="text"
+                inputMode="numeric"
+                maxLength="10"
+                value={documento}
+                onChange={(evento) => setDocumento(evento.target.value)}
+                />
+
+                <label htmlFor="nombres">Nombres</label>
+                <input
+                id="nombres"
+                type="text"
+                maxLength="50"
+                value={nombres}
+                onChange={(evento) => setNombres(evento.target.value)}
+                />
+
+                <label htmlFor="apellidos">Apellidos</label>
+                <input
+                id="apellidos"
+                type="text"
+                maxLength="50"
+                value={apellidos}
+                onChange={(evento) => setApellidos(evento.target.value)}
+                />
+
+                <label htmlFor="celular">Número de celular</label>
+                <input
+                id="celular"
+                type="tel"
+                inputMode="numeric"
+                maxLength="10"
+                value={celular}
+                onChange={(evento) => setCelular(evento.target.value)}
+                />
+
+                  <label htmlFor="correo">Correo electrónico</label>
+                <input
+                id="correo"
+                type="email"
+                maxLength="100"
+                value={correo}
+                onChange={(evento) => setCorreo(evento.target.value)}
+                />
+                 <Boton texto="Crear cuenta" />
+            </form>
+        </main>
+    )
+}
+
+export default Registro
