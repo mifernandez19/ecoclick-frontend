@@ -42,6 +42,16 @@ function Registro() {
         }else  {
             setErrorApellidos('')
         }
+        
+        if (celular.trim() === '') {
+            setErrorCelular('El número de celular es obligatorio')
+            hayErrores = true
+        } else if (!/^3\d{9}$/.test(celular)) {
+            setErrorCelular('El celular debe tener 10 números y empezar por 3')
+            hayErrores = true
+        } else {
+            setErrorCelular('')
+        }
 
         if(hayErrores){
             return
@@ -116,9 +126,16 @@ function Registro() {
                 maxLength="10"
                 value={celular}
                 onChange={(evento) => setCelular(evento.target.value)}
+                aria-invalid={errorCelular !== ''}
+                aria-describedby={errorCelular ? 'error-celular' : undefined}
                 />
+                {errorCelular && (
+                    <p id="error-celular" className="mensaje-error">
+                        {errorCelular}
+                    </p>
+                )}
 
-                  <label htmlFor="correo">Correo electrónico</label>
+                <label htmlFor="correo">Correo electrónico</label>
                 <input
                 id="correo"
                 type="email"
