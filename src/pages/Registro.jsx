@@ -19,6 +19,16 @@ function Registro() {
         evento.preventDefault()
         let hayErrores = false
 
+        if (documento.trim() === '') {
+            setErrorDocumento('El número de documento es obligatorio')
+            hayErrores = true
+        } else if (!/^\d{6,10}$/.test(documento)) {
+            setErrorDocumento('El documento debe tener entre 6 y 10 números, sin puntos ni espacios')
+            hayErrores = true
+        } else {
+            setErrorDocumento('')
+        }
+
          if (nombres.trim() === '') {
             setErrorNombres('Los nombres son obligatorios')
             hayErrores = true
@@ -53,7 +63,15 @@ function Registro() {
                 maxLength="10"
                 value={documento}
                 onChange={(evento) => setDocumento(evento.target.value)}
+                aria-invalid={errorDocumento !== ''}
+                aria-describedby={errorDocumento ? 'error-documento' : undefined}
                 />
+                {errorDocumento && (
+                    <p id="error-documento" className="mensaje-error">
+                        {errorDocumento}
+                </p>
+            )}
+                
 
                 <label htmlFor="nombres">Nombres</label>
                 <input
