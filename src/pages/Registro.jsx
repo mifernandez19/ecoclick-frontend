@@ -53,6 +53,16 @@ function Registro() {
             setErrorCelular('')
         }
 
+        if (correo.trim() === '') {
+            setErrorCorreo('El correo electrónico es obligatorio')
+            hayErrores = true
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+            setErrorCorreo('Escribe un correo válido, por ejemplo: nombre@correo.com')
+            hayErrores = true
+        } else {
+            setErrorCorreo('')
+        }
+
         if(hayErrores){
             return
         }
@@ -64,7 +74,7 @@ function Registro() {
         <main>
             <Encabezado titulo="Crear cuenta" volverA="/" />
             <p>Regístrate para reportar los microbasureros de tu barrio.</p>
-             <form onSubmit={manejarEnvio}>
+             <form onSubmit={manejarEnvio} noValidate>
                 <label htmlFor="documento">Número de documento</label>
                 <input
                 id="documento"
@@ -142,7 +152,14 @@ function Registro() {
                 maxLength="100"
                 value={correo}
                 onChange={(evento) => setCorreo(evento.target.value)}
+                aria-invalid={errorCorreo !==''}
+                aria-describedby={errorCorreo ? 'error-correo' : undefined}
                 />
+                {errorCorreo && (
+                    <p id="error-correo" className="mensaje-error">
+                    {errorCorreo}
+                    </p>
+                )}
                  <Boton texto="Crear cuenta" />
             </form>
         </main>
