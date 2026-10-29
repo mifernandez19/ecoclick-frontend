@@ -56,7 +56,17 @@ function Registro() {
                 maxLength="50"
                 value={nombres}
                 onChange={(evento) => setNombres(evento.target.value)}
-                />
+                aria-invalid={errorNombres !== ''}
+                aria-describedby={errorNombres ? 'error-nombres' : undefined}
+            />
+                {errorNombres && (
+               <p id="error-nombres" className="mensaje-error">
+        {errorNombres}
+    </p>
+)}
+
+
+            
 
                 <label htmlFor="apellidos">Apellidos</label>
                 <input

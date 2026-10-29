@@ -115,9 +115,8 @@ form textarea:focus-visible{
   outline-offset: 1px;
 }
 
-.error{
-  margin:4px 0 0;
-  color:#b91c1c;
-  font-size: 0.9rem;
-  font-family: inherit;
+.mensaje-error {
+    color: #b42318;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
