@@ -26,6 +26,12 @@ function Registro() {
             setErrorNombres('')
         }
 
+        if (apellidos.trim() === ''){
+            setErrorApellidos('Los apellidos son obligatorios')
+            hayErrores = true
+        }else  {
+            setErrorApellidos('')
+        }
 
         if(hayErrores){
             return
@@ -75,8 +81,15 @@ function Registro() {
                 maxLength="50"
                 value={apellidos}
                 onChange={(evento) => setApellidos(evento.target.value)}
-                />
-
+                aria-invalid={errorApellidos !== ''}
+                aria-describedby={errorApellidos ? 'error-apellidos' : undefined}
+            />
+                {errorApellidos && (
+                    <p id="error-apellidos" className="mensaje-error">
+                        {errorApellidos}
+                    </p>
+                )}
+            
                 <label htmlFor="celular">Número de celular</label>
                 <input
                 id="celular"
