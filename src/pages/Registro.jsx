@@ -87,7 +87,7 @@ function Registro() {
                 aria-describedby={errorDocumento ? 'error-documento' : undefined}
                 />
                 {errorDocumento && (
-                    <p id="error-documento" className="mensaje-error">
+                    <p id="error-documento" className="error">
                         {errorDocumento}
                 </p>
             )}
@@ -104,7 +104,7 @@ function Registro() {
                 aria-describedby={errorNombres ? 'error-nombres' : undefined}
             />
                 {errorNombres && (
-               <p id="error-nombres" className="mensaje-error">
+               <p id="error-nombres" className="error">
         {errorNombres}
     </p>
 )}
@@ -123,7 +123,7 @@ function Registro() {
                 aria-describedby={errorApellidos ? 'error-apellidos' : undefined}
             />
                 {errorApellidos && (
-                    <p id="error-apellidos" className="mensaje-error">
+                    <p id="error-apellidos" className="error">
                         {errorApellidos}
                     </p>
                 )}
@@ -140,7 +140,7 @@ function Registro() {
                 aria-describedby={errorCelular ? 'error-celular' : undefined}
                 />
                 {errorCelular && (
-                    <p id="error-celular" className="mensaje-error">
+                    <p id="error-celular" className="error">
                         {errorCelular}
                     </p>
                 )}
@@ -156,7 +156,7 @@ function Registro() {
                 aria-describedby={errorCorreo ? 'error-correo' : undefined}
                 />
                 {errorCorreo && (
-                    <p id="error-correo" className="mensaje-error">
+                    <p id="error-correo" className="error">
                     {errorCorreo}
                     </p>
                 )}
