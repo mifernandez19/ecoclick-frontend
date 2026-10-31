@@ -73,7 +73,7 @@ function Registro() {
     return (
         <main>
             <Encabezado titulo="Crear cuenta" volverA="/" />
-            <p>Regístrate para reportar los microbasureros de tu barrio.</p>
+            <p>Crea tu cuenta y ayúdanos a mantener limpio tu barrio.</p>
              <form onSubmit={manejarEnvio} noValidate>
                 <label htmlFor="documento">Número de documento</label>
                 <input
