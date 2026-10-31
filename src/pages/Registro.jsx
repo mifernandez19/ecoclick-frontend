@@ -73,7 +73,7 @@ function Registro() {
     return (
         <main>
             <Encabezado titulo="Crear cuenta" volverA="/" />
-            <p>Regístrate para reportar los microbasureros de tu barrio.</p>
+            <p>Únete a EcoClick y reporta los puntos de basura de tu ciudad.</p>
              <form onSubmit={manejarEnvio} noValidate>
                 <label htmlFor="documento">Número de documento</label>
                 <input
