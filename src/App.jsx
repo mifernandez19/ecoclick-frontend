@@ -4,6 +4,7 @@ import CrearReporte from './pages/CrearReporte'
 import Notificaciones from './pages/Notificaciones'
 import Login from './pages/Login' 
 import Registro from './pages/Registro'
+import MisReportes from './pages/MisReportes'
 
 function App(){
   return (
@@ -13,7 +14,7 @@ function App(){
       <Route path="/notificaciones" element={<Notificaciones/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/registro" element={<Registro/>} />
-
+      <Route path="/mis-reportes" element={<MisReportes />} />
     </Routes>
   )
 }

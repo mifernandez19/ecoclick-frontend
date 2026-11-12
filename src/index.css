@@ -121,3 +121,20 @@ form textarea:focus-visible{
   font-size: 0.9rem;
   font-family: inherit;
 }
+
+/*7. Tarjetas de reportes */
+.tarjeta{
+  border:1px solid #d1d5db;
+  border-radius: var(--radio);
+  padding:16px;
+  margin-top: 12px;
+}
+
+.tarjeta h2{
+  margin:0 0 4px;
+  font-size: 1.1rem;
+}
+
+.tarjeta p{
+  margin: 4px 0;
+}
