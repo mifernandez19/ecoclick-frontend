@@ -5,6 +5,7 @@ import Notificaciones from './pages/Notificaciones'
 import Login from './pages/Login' 
 import Registro from './pages/Registro'
 import MisReportes from './pages/MisReportes'
+import ReportesCoordinador from './pages/ReportesCoordinador'
 
 function App(){
   return (
@@ -15,6 +16,7 @@ function App(){
       <Route path="/login" element={<Login/>} />
       <Route path="/registro" element={<Registro/>} />
       <Route path="/mis-reportes" element={<MisReportes />} />
+      <Route path="/reportes-coordinador" element={<ReportesCoordinador/>}/>
     </Routes>
   )
 }
