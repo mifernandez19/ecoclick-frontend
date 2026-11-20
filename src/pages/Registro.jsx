@@ -8,12 +8,17 @@ function Registro() {
     const [apellidos, setApellidos] = useState('')
     const [celular, setCelular] = useState('')
     const [correo, setCorreo] = useState('')
+    const [contrasena, setContrasena] = useState('')
+    const [confirmarContrasena, setConfirmarContrasena] = useState('')
 
     const [errorDocumento, setErrorDocumento] = useState('')
     const [errorNombres, setErrorNombres] = useState('')
     const [errorApellidos, setErrorApellidos] = useState('')
     const [errorCelular, setErrorCelular] = useState('')
     const [errorCorreo, setErrorCorreo] = useState('')
+    const [errorContrasena,setErrorContrasena] = useState('')
+    const [errorConfirmar, setErrorConfirmar] = useState('')
+
 
     function manejarEnvio(evento){
         evento.preventDefault()
@@ -55,6 +60,7 @@ function Registro() {
 
         if (correo.trim() === '') {
             setErrorCorreo('El correo electrónico es obligatorio')
+            
             hayErrores = true
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
             setErrorCorreo('Escribe un correo válido, por ejemplo: nombre@correo.com')
@@ -62,6 +68,25 @@ function Registro() {
         } else {
             setErrorCorreo('')
         }
+        if (contrasena === ''){
+            setErrorContrasena('La contraseña es obligatoria')
+            hayErrores = true
+        }  else if (contrasena.length <8){
+            setErrorContrasena('La contraseña debe tener mínimo 8 caracteres')
+            hayErrores = true
+        }   else {
+            setErrorContrasena('')
+        }
+        if (confirmarContrasena === ''){
+            setErrorConfirmar('Confirma tu contraseña')
+            hayErrores = true
+        } else if (confirmarContrasena !== contrasena){
+            setErrorConfirmar('Las contraseñas no coinciden')
+            hayErrores = true
+        }   else {
+            setErrorConfirmar('')
+        }
+
 
         if(hayErrores){
             return
@@ -108,9 +133,7 @@ function Registro() {
         {errorNombres}
     </p>
 )}
-
-
-            
+           
 
                 <label htmlFor="apellidos">Apellidos</label>
                 <input
@@ -160,7 +183,39 @@ function Registro() {
                     {errorCorreo}
                     </p>
                 )}
+                <label htmlFor="contrasena">Contraseña</label>
+                <input
+                    id="contraseña"
+                    type="password"
+                    autoComplete="new-password"
+                    value={contrasena}
+                    onChange={(evento) => setContrasena(evento.target.value)}
+                    aria-invalid={errorContrasena !== ''}
+                    aria-describedby={errorContrasena ? 'error-contrasena' : undefined}
+                />
+                {errorContrasena && (
+                    <p id="error-contrasena" className="error">
+                        {errorContrasena}
+                    </p>
+                )}
+                <label htmlFor="confirmarContrasena">Confirmar contraseña</label>
+                <input
+                id="confirmarContrasena"
+                type="password"
+                autoComplete="new-password"
+                value={confirmarContrasena}
+                onChange={(evento) => setConfirmarContrasena(evento.target.value)}
+                aria-invalid={errorConfirmar !== ''}
+                aria-describedby={errorConfirmar ? 'error-confirmar' : undefined}
+                />
+                {errorConfirmar &&(
+                    <p id="error-confirmar" className="error">
+                        {errorConfirmar}
+                    </p>
+                )}
+
                  <Boton texto="Crear cuenta" />
+
             </form>
         </main>
     )
