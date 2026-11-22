@@ -168,3 +168,13 @@ form textarea:focus-visible{
   outline: 3px solid var(--color-texto);
   outline-offset: 2px;
   }
+  /* 9. Botón secundario */
+.boton-secundario {
+  background-color: #ffffff;
+  color: var(--color-primario);
+  border: 1px solid var(--color-primario);
+}
+
+.boton-secundario:hover {
+  background-color: #f0fdf4;
+}

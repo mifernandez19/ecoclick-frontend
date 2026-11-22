@@ -6,7 +6,7 @@ import reportes from '../data/reportes';
 function MisReportes() {
     return (
         <main>
-            <Encabezado titulo="Mis reportes" volverA="/" />
+            <Encabezado titulo="Mis reportes" volverA="/inicio-ciudadano" />
             {reportes.map((reporte)=> (
                 <TarjetaReporte
                 key={reporte.id}

@@ -48,7 +48,7 @@ function CrearReporte() {
 
   return (
     <main>
-      <Encabezado titulo="Crear nuevo reporte" volverA="/" />
+      <Encabezado titulo="Crear nuevo reporte" volverA="/inicio-ciudadano" />
 
       <form onSubmit={manejarEnvio}>
         <label htmlFor="descripcion">Descripción del problema</label>

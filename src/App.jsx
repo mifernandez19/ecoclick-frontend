@@ -7,6 +7,7 @@ import Registro from './pages/Registro'
 import MisReportes from './pages/MisReportes'
 import ReportesCoordinador from './pages/ReportesCoordinador'
 import MisTareas from './pages/MisTareas'
+import InicioCiudadano from './pages/InicioCiudadano'
 
 function App(){
   return (
@@ -19,6 +20,7 @@ function App(){
       <Route path="/mis-reportes" element={<MisReportes />} />
       <Route path="/reportes-coordinador" element={<ReportesCoordinador/>}/>
       <Route path='/mis-tareas' element={<MisTareas/>}/>
+      <Route path="/inicio-ciudadano" element={<InicioCiudadano />} />
     </Routes>
   )
 }
